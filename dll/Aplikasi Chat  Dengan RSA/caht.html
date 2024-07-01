@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aplikasi Chat Menggunakan Algoritma RSA</title>
+    <meta charset="UTF-8" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      #messages_frame {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        padding: 10px;
+      }
+      #messages_frame p {
+        margin: 0;
+        font-size: 18px;
+      }
+      #input_frame {
+        display: flex;
+        padding: 10px;
+      }
+      #input_text {
+        flex: 1;
+        font-size: 18px;
+        padding: 5px;
+      }
+      #send_button {
+        font-size: 18px;
+        padding: 5px;
+        margin-left: 5px;
+      }
+    </style>
+    <script type="module">
+      function getName() {
+        return prompt("Enter your name:");
+      }
+
+      function getHost() {
+        return prompt("Enter host:");
+      }
+
+      function getPort() {
+        return prompt("Enter port:");
+      }
+
+      function startChat(start_chat_callback) {
+        start_chat_callback();
+      }
+
+      function send() {
+        window.py.send();
+      }
+
+      window.py = {
+        send: send,
+      };
+    </script>
+  </head>
+  <body>
+    <div id="messages_frame">
+      <p>Welcome to the chat room!</p>
+    </div>
+    <div id="input_frame">
+      <input type="text" id="input_text" />
+      <button id="send_button" onclick="py.send()">Send</button>
+    </div>
+  </body>
+</html>
